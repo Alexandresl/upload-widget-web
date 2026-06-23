@@ -132,3 +132,8 @@ export default {
   <script type="module" src="/src/main.tsx"></script>
 </body>
 ```
+
+### Estrutura do Widget
+
+- Componentes criados em `src/components`
+- Instalação do pacote de ícones: `pnpm i lucide-react`
