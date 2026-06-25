@@ -137,3 +137,39 @@ export default {
 
 - Componentes criados em `src/components`
 - Instalação do pacote de ícones: `pnpm i lucide-react`
+
+### Botão e Widget Colapsável
+
+- Cria uma pasta `ui` dentro de `components`
+- Cria um component `button.tsx`
+- Adiciona a dependência `pnpm i tailwind-variants`
+- Adiciona a dependência do tailwind-variants: `pnpm i tailwind-merge`
+- Uso da variant:
+
+```ts
+import type { ComponentProps } from "react";
+import { tv, type VariantProps } from 'tailwind-variants'
+
+const buttonVariants = tv({
+  base: 'text-zinc-400 rounded-lg hover:text-zinc-100 hover:bg-zinc-800 disabled:opacity-50 disabled:pointer-events-none',
+  variants: {
+    size: {
+      default: 'px-3 py-2',
+      icon: 'p-2',
+      'icon-sm': 'p-1'
+    }
+  },
+  defaultVariants: {
+    size: 'default'
+  }
+})
+
+export function Button({ size, className, ...props }: ComponentProps<'button'> & VariantProps<typeof buttonVariants>) {
+  return (
+    <button className={buttonVariants({ size, className })} {...props} />
+  )
+}
+```
+
+- Para a funcionalidade de colapsar: `pnpm i @radix-ui/react-collapsible`
+- 
